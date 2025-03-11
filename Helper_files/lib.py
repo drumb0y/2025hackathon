@@ -17,14 +17,16 @@ def ensure_file_exists(filename,contents):
     created = False
     if not os.path.exists(filename):
         with open(filename, 'w', encoding='utf-8') as file:
-            file.write(contents)  # Create an empty file
+            file.write(contents)  # Create a file with stuff in it
         created = True
     return created
 
-def ensure_folder_exists(foldername,files:list,contents:list ):
+def ensure_folder_exists(foldername,files_and_contents :list{tuple}, ):
     created = False
-    if not os.path.exists(filename):
-        with open(filename, 'w', encoding='utf-8') as file:
-            file.write("")  # Create an empty file
+    path = os.path.join(".", foldername)
+    if not os.path.exists(path):
+        os.mkdir(path)
+        for (file,content) in files_and_contents:
+            ensure_file_exists(file,content)
         created = True
     return created
