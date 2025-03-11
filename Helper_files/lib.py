@@ -21,7 +21,7 @@ def ensure_file_exists(filename,contents):
         created = True
     return created
 
-def ensure_folder_exists(foldername,files_and_contents :list{tuple}, ):
+def ensure_folder_exists(foldername,files_and_contents):
     created = False
     path = os.path.join(".", foldername)
     if not os.path.exists(path):
