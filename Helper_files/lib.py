@@ -13,7 +13,7 @@ def file_to_list(filename):
         print("Error: File not found.")
         return []
 
-def ensure_file_exists(filename,contents):
+def ensure_file_exists(filename,contents=""):
     created = False
     if not os.path.exists(filename):
         with open(filename, 'w', encoding='utf-8') as file:
@@ -21,12 +21,14 @@ def ensure_file_exists(filename,contents):
         created = True
     return created
 
-def ensure_folder_exists(foldername,files_and_contents):
+def ensure_folder_exists(foldername, files_and_contents):
     created = False
-    path = os.path.join(".", foldername)
+    path = os.path.join(".", foldername)  # Ensure the folder is created inside the current directory
     if not os.path.exists(path):
         os.mkdir(path)
-        for (file,content) in files_and_contents:
-            ensure_file_exists(file,content)
+        for file, content in files_and_contents:
+            file_path = os.path.join(path, file)  # Ensure the file is placed inside the folder
+            ensure_file_exists(file_path, content)
         created = True
     return created
+

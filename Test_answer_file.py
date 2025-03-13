@@ -1,5 +1,5 @@
 import sys
-from Helper_files.lib import file_to_list, ensure_file_exists
+from Helper_files.lib import file_to_list, ensure_file_exists,ensure_folder_exists
 
 def main():
 
