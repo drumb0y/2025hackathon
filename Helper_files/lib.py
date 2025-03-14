@@ -27,7 +27,7 @@ def ensure_folder_exists(foldername, files_and_contents,permisions):
     path = os.path.join(".", foldername)  # Ensure the folder is created inside the current directory
     if not os.path.exists(path):
         os.mkdir(path)
-        os.chmod(path,permisions[0])
+        os.chmod(path,permisions[0]) #permisons is a list contaning numbers 1=exicute 2=write 4 read example 0o644 =  rw-r--r-- 
         for file, content in files_and_contents:
             file_path = os.path.join(path, file)  # Ensure the file is placed inside the folder
             ensure_file_exists(file_path, content)
