@@ -21,14 +21,17 @@ def ensure_file_exists(filename,contents=""):
         created = True
     return created
 
-def ensure_folder_exists(foldername, files_and_contents):
+def ensure_folder_exists(foldername, files_and_contents,permisions):
     created = False
+    index = 0
     path = os.path.join(".", foldername)  # Ensure the folder is created inside the current directory
     if not os.path.exists(path):
         os.mkdir(path)
+        os.chmod(path,permisions[0])
         for file, content in files_and_contents:
             file_path = os.path.join(path, file)  # Ensure the file is placed inside the folder
             ensure_file_exists(file_path, content)
+            os.chmod(file_path,permisions[index])
+            index +=1
         created = True
     return created
-
