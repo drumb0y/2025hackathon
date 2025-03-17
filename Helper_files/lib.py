@@ -35,3 +35,7 @@ def ensure_folder_exists(foldername, files_and_contents,permisions):
             index +=1
         created = True
     return created
+def exercise1():
+    ensure_folder_exists ("exercise1",[("Help","Someone has lost a file they say that it just seemed to disapear your task is to help them find the file the code is the files name. "),("A quick RSA tutorial","""Filler will need to be replaced""")],[0o766,0o766,0o766])
+    path = os.path.join(".", "exercise 1")  # Ensure the folder is created inside the current directory
+    file_path = os.path.join(path, ".trex.txt")
