@@ -1,2 +1,3 @@
 one
-trex.txt
+.trex.bash
+A keyboard
