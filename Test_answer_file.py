@@ -1,6 +1,6 @@
 import sys
 import os
-from Helper_files.lib import file_to_list, ensure_file_exists,exercise1,exercise2
+from Helper_files.lib import file_to_list, ensure_file_exists,exercise1,exercise2,exercise3
 
 def main():
     count = 0 
@@ -24,6 +24,7 @@ def main():
             exercise2()
         if user_answers[count] != answer_key[1]:
             print("uh oh")
+        exercise3()
 
 if __name__ == "__main__":
     main()
