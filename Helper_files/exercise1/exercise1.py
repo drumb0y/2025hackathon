@@ -1,5 +1,5 @@
 import os
-from Helper_files import lib
+from Helper_files.lib import ensure_file_exists
 
 def run1():
     with open("roar.bash", "r", encoding="utf-8") as file:
@@ -20,7 +20,7 @@ def run1():
             dump.append(line)
         return '\n'.join(dump) + '\n'
 
-    lib.ensure_folder_exists(
+    Helper_files.lib.ensure_folder_exists(
         "exercise1",
         [     
             ("Help.txt", "My script vanished! ..."),
