@@ -8,7 +8,19 @@ currentLevel = 0 # counter to track player level
 playerName = "TEST TEAM" # 
 
 
-def start(): #start from here and create exercise 1    
+def start(): #start from here and create exercise 1   
+    
+    ## create the player directory/clear it if it needs to be
+    
+    try:
+        shutil.rmtree(pathToPlayerFiles)
+        print("sucessfully cleared player folder")
+        
+    except:
+        print("was not able to clear folder")
+     
+    
+    
     
     print(parentDir)
     print(pathToBTSFiles)
@@ -48,17 +60,19 @@ def unlockLevel(levelNumber) : # as the player leves up,
         
         
         
-def unlockLevel8() :
+def unlockLevel8() : # create a directory for exercise 8 in the players folder and the files the player should be able to mess around with
     os.system(("mkdir " + (pathToPlayerFiles+"\exercise8")))
     
     moveFileFromAtoB(pathToBTSFiles+"\exercise8\Exercise8descrition.txt", pathToPlayerFiles+"\exercise8\Exercise8descrition.txt")
+    
+    # run sender to create the solution table as well as encode the message ...
 
     
-def moveFileFromAtoB(fileToBeMoved, endLocationFolder) :
+def moveFileFromAtoB(fileToBeMoved, endLocationFolder) : # move file
     shutil.copyfile(fileToBeMoved, endLocationFolder)
     
     
-if __name__ == "__main__":
+if __name__ == "__main__": # test the movment and unlock functionality
     print(os.getcwd())
     start()
     #unlockLevel(8)
