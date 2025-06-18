@@ -1,13 +1,14 @@
 # correct answer is "Waffles"
 
 import random
+import os
 
 SoutionTableArray = []
 
 def createTable():
     letters = 26
     
-    tableFile = open("SolutionTable.txt","w")
+    tableFile = open(os.getcwd() + "\SolutionTable.txt","w")
     
     while(letters > 0) :
         
@@ -59,10 +60,12 @@ def startPrinting():
 
 
 if __name__ == "__main__":
+    print('Get current working directory : ', os.getcwd())
+
     createTable()
     print(SoutionTableArray)
     
-    startPrinting()
+    # startPrinting()
 
 
 def getNumberInAlphabet(): # rather than having to account for uppercase and lowercase letters, convert all letters to lowercase

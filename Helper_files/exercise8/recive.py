@@ -1,11 +1,13 @@
 # correct answer is "Waffles"
 
+import os
+
 SoutionTableArray = []
 
 
 def readTable():    
 
-    tableFile = open("SolutionTable.txt","r")
+    tableFile = open(os.getcwd() + "\SolutionTable.txt","r")
     tableString = tableFile.read()
     
     for s in tableString:
@@ -17,8 +19,8 @@ def readTable():
 def deconvert():
     
     inputString = input("What is the string you would like decode")
-    positionCounter = 0
-    shift = input("what number would you like to shift by")
+    # positionCounter = 0
+    # shift = input("what number would you like to shift by")
     
     outputstring = ""
     
