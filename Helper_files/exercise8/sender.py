@@ -1,14 +1,24 @@
 # correct answer is "Waffles"
 
 import random
+import time
 import os
+#from modules.customPrinter import rotatingPrintStringInSingleLine
 
 SoutionTableArray = []
 
+secretString = "Type \"Waffles\" to procede !"
+
+
 def createTable():
     letters = 26
+    print('File name :    ', os.path.abspath(__file__))
+    print('Directory Name:     ', os.path.dirname(__file__))
+
+
+    print(os.path.dirname)
     
-    tableFile = open(os.getcwd() + "\SolutionTable.txt","w")
+    tableFile = open(os.path.dirname(__file__) + "/SolutionTable.txt","w")
     
     while(letters > 0) :
         
@@ -21,11 +31,25 @@ def createTable():
         
     tableFile.close()    
     
+def getEncryptedString(baseString):
+    encryptedString = ""
+    
+    
+    for c in baseString:
+        
+        if c in SoutionTableArray:
+            specialChar = SoutionTableArray[ord(c)-96]
+        else:
+            specialChar = c
+            
+        encryptedString = encryptedString + specialChar
+
+#def printRotating():
+   # rotatingPrintStringInSingleLine(getEncryptedString(secretString),50,500)
     
 def startPrinting():
     stillRunning = True
     
-    secretString = "Type \"Waffles\" to procede !"
     positionCounter = 0
         
     while (stillRunning):
@@ -42,7 +66,9 @@ def startPrinting():
         positionCounter = positionCounter +1
     
 
+## dont use
 # def startPrinting():
+# simple ceaser cipher
     
 #     stillRunning = True
     
@@ -60,12 +86,19 @@ def startPrinting():
 
 
 if __name__ == "__main__":
+    
     print('Get current working directory : ', os.getcwd())
 
     createTable()
     print(SoutionTableArray)
     
-    # startPrinting()
+    #printRotating()
+    
+    time.sleep(5)
+    
+    startPrinting()
+
+
 
 
 def getNumberInAlphabet(): # rather than having to account for uppercase and lowercase letters, convert all letters to lowercase

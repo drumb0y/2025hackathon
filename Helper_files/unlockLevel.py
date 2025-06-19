@@ -2,7 +2,7 @@ import os
 import shutil
 
 parentDir = os.path.dirname(os.getcwd()) # directory that both player and helper files are in
-pathToBTSFiles = os.getcwd() # directory that has the all production files
+pathToBTSFiles = os.path.dirname(__file__) # directory that has the all production files
 pathToPlayerFiles = parentDir + "\playerfiles" # can change as needed but this is the folder that we can add files to as a player levels up
 currentLevel = 0 # counter to track player level
 playerName = "TEST TEAM" # 
@@ -19,8 +19,6 @@ def start(): #start from here and create exercise 1
     except:
         print("was not able to clear folder")
      
-    
-    
     
     print(parentDir)
     print(pathToBTSFiles)
@@ -63,7 +61,7 @@ def unlockLevel(levelNumber) : # as the player leves up,
 def unlockLevel8() : # create a directory for exercise 8 in the players folder and the files the player should be able to mess around with
     os.system(("mkdir " + (pathToPlayerFiles+"\exercise8")))
     
-    moveFileFromAtoB(pathToBTSFiles+"\exercise8\Exercise8descrition.txt", pathToPlayerFiles+"\exercise8\Exercise8descrition.txt")
+    moveFileFromAtoB(pathToBTSFiles+"\exercise8\Exercise8description.txt", pathToPlayerFiles+"\exercise8\Exercise8description.txt")
     
     # run sender to create the solution table as well as encode the message ...
 
