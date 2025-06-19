@@ -3,7 +3,7 @@
 import random
 import time
 import os
-#from modules.customPrinter import rotatingPrintStringInSingleLine
+from Helper_files.customPrinter import rotatingPrintStringInSingleLine
 
 SoutionTableArray = []
 
@@ -44,8 +44,8 @@ def getEncryptedString(baseString):
             
         encryptedString = encryptedString + specialChar
 
-#def printRotating():
-   # rotatingPrintStringInSingleLine(getEncryptedString(secretString),50,500)
+def printRotating():
+   rotatingPrintStringInSingleLine(getEncryptedString(secretString),50,500)
     
 def startPrinting():
     stillRunning = True
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     createTable()
     print(SoutionTableArray)
     
-    #printRotating()
+    printRotating()
     
     time.sleep(5)
     
