@@ -1,1 +1,6 @@
-lets gooooooooo
+Ok, youve made it througth a fair amount of the challenges but now, it gets hard
+For some reason this level of the security has a constantly rotating stream of data
+using the provided tools, you can listen in for a couple of seconds and copy the data but, 
+you can only listen in for a small amount of time
+
+Good luck
