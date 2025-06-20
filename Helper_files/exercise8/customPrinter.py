@@ -19,14 +19,16 @@ def rotatingPrintStringInSingleLine(stringToPrint, numOfCharsOnScreen, numOfChar
     for i in range(0,int(numOfCharsToBePrinted/len(stringToPrint))+1):
         fulllengthString = fulllengthString + stringToPrint
         
-    print(fulllengthString)
+    #print(fulllengthString)
     
     positionCounter = 0
     
-    for i in range(0,(numOfCharsToBePrinted-int(len(stringToPrint)))):
+    for i in range(0,(len(fulllengthString)-int(len(stringToPrint)))):
         sys.stdout.write("\r |" + fulllengthString[positionCounter:(positionCounter+numOfCharsOnScreen)] + "|")
         positionCounter = positionCounter +1
-        time.sleep(.05)
+        time.sleep(.01)
+
+
 
      
     

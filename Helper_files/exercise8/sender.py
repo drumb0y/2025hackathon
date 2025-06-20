@@ -3,7 +3,7 @@
 import random
 import time
 import os
-from Helper_files.customPrinter import rotatingPrintStringInSingleLine
+import customPrinter as printer
 
 SoutionTableArray = []
 
@@ -12,8 +12,6 @@ secretString = "Type \"Waffles\" to procede !"
 
 def createTable():
     letters = 26
-    print('File name :    ', os.path.abspath(__file__))
-    print('Directory Name:     ', os.path.dirname(__file__))
 
 
     print(os.path.dirname)
@@ -43,9 +41,25 @@ def getEncryptedString(baseString):
             specialChar = c
             
         encryptedString = encryptedString + specialChar
+        
+    return encryptedString
 
 def printRotating():
-   rotatingPrintStringInSingleLine(getEncryptedString(secretString),50,500)
+    encString = getEncryptedString(secretString)
+    print("printed ecrypted string " + encString)
+    
+    printer.rotatingPrintStringInSingleLine(encString,100,500)
+    
+    
+    contentsOfFile = ""
+    
+    for i in range(0,random.randint(3,100)):
+        contentsOfFile = contentsOfFile + encString
+    print("\nfile content should be: " + contentsOfFile)    
+    
+    ListenFile = open(os.path.dirname(__file__) + "\ResultsFromListening.txt","w")
+    ListenFile.write(contentsOfFile[random.randint(0,len(encString)):])
+    ListenFile.close()
     
 def startPrinting():
     stillRunning = True
@@ -96,7 +110,7 @@ if __name__ == "__main__":
     
     time.sleep(5)
     
-    startPrinting()
+    # startPrinting()
 
 
 
