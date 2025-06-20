@@ -3,71 +3,70 @@ class gibrish:
         self.some = q
         self.thing = w
         self. c = 0
-        self.structure = []
-        self.iter = []
+        self.list = []
+        self.readers = []
 
-    def addRoot(self, tree):
-        if len(self.structure) >= self.some:
-            raise IndexError("Max number of trees reached.")
-        root = TreeNode(tree, self.thing)
-        self.structure.append(root)
-        self.iter.append(TreeIterator(root))
+    def begin(self, v):
+        if len(self.list) >= self.some:
+            raise IndexError("No it is not time yet")
+        n = TreeNode(v, self.thing)
+        self.list.append(n)
+        self.readers.append(TreeIterator(n))
 
-    def moveforward(self):
-        if self. c < len(self.structure) - 1:
+    def left(self):
+        if self. c < len(self.list) - 1:
             self. c += 1
         else:
             raise IndexError("Already at the last tree.")
 
-    def moveback(self):
+    def right(self):
         if self. c > 0:
             self. c -= 1
         else:
             raise IndexError("Already at the first tree.")
 
-    def addLeft(self, value):
-        self.iter[self. c].current.add_left(value)
+    def mystery(self, value):
+        self.readers[self. c].current.add_left(value)
+    def noName (self, value):
+        self.readers[self. c].current.add_right(value)
+    def no(self):
+        self.readers[self.c].go_left()
 
-    def addRight(self, value):
-        self.iter[self. c].current.add_right(value)
-    def goLeft(self):
-        self.iter[self.c].go_left()
+    def yes(self):
+        self.readers[self.c].go_right()
 
-    def goRight(self):
-        self.iter[self.c].go_right()
-
-    def goUp(self):
-        self.iter[self.c].go_up()
+    def up(self):
+        self.readers[self.c].go_up()
 
     def print(self):
-        if len(self.structure) == 0:
+        if len(self.list) == 0:
             print("None")
         else:
-            print(self.iter[self.c].get_value())
+            print(self.readers[self.c].get_value())
    
 
 class TreeNode:
-    def __init__(self, value, max_depth, depth=0, parent=None):
-        self.value = value
-        self.left = None
-        self.right = None
-        self.depth = depth
-        self.max_depth = max_depth
-        self.parent = parent  # new
+    def __init__(self, x, d, y=0, p=None):
+        self.x = x
+        self.qwerty = None
+        self.uiop = None
+        self.y = y
+        self.d = d
+        self.wasd = p  
 
-    def add_left(self, value):
-        if self.depth + 1 > self.max_depth:
+    def add_left(self, t):
+        if self.y + 1 > self.d:
             raise ValueError("Max depth exceeded")
         if self.left:
             raise ValueError("Left child already exists")
-        self.left = TreeNode(value, self.max_depth, self.depth + 1, parent=self)
+        self.left = TreeNode(t, self.d, self.y + 1, p=self)
 
-    def add_right(self, value):
-        if self.depth + 1 > self.max_depth:
+    def add_right(self, t):
+        if self.y + 1 > self.d:
             raise ValueError("Max depth exceeded")
-        if self.right:
+        if self.uiop:
             raise ValueError("Right child already exists")
-        self.right = TreeNode(value, self.max_depth, self.depth + 1, parent=self)
+        self.uiop = TreeNode(t, self.d, self.y + 1, parent=self)
 
 
 class TreeIterator:
@@ -93,7 +92,7 @@ class TreeIterator:
             raise ValueError("No parent (already at root)")
 
     def get_value(self):
-        return self.current.value
+        return self.current.x
 
 
 try:
