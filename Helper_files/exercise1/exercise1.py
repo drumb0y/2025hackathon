@@ -1,6 +1,5 @@
 import os
-from Helper_files.lib import ensure_file_exists
-
+from Helper_files.lib import ensure_folder_exists
 def run1():
     with open("roar.bash", "r", encoding="utf-8") as file:
         roar_script = file.read()
@@ -19,8 +18,7 @@ def run1():
             line = f"{offset}: {hex_bytes}  {ascii_repr}"
             dump.append(line)
         return '\n'.join(dump) + '\n'
-
-    Helper_files.lib.ensure_folder_exists(
+    ensure_folder_exists(
         "exercise1",
         [     
             ("Help.txt", "My script vanished! ..."),
@@ -29,9 +27,8 @@ def run1():
             (".roar.hex", createDump(roar_script)),
             ("suspicious.bash",sus_script)
         ],
-        [0o644, 0o644, 0o644, 0o644, 0o644]  # Note: initially not executable
+        [0o644, 0o644, 0o644, 0o644, 0o644] 
     )
     
-    # Now explicitly make 'roar' executable
     os.chmod("./exercise1/suspicious.bash", 0o755)
 
