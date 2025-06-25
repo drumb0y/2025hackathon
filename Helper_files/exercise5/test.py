@@ -147,7 +147,8 @@ class GibrishCLI:
         print("Unknown command. Type 'printCommands()' or 'help' for commands.")
 
     def repl(self):
-        print("Gibrish CLI. Type 'printCommands()' for available commands.")
+        printCommands()  
+        print("to create a new instance follow this format : name = constructor")      
         while True:
             try:
                 line = input("")
