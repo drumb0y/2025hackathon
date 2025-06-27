@@ -1,9 +1,7 @@
 import gibrish
-
 # A dictionary that maps command names to a description.
 import re
 from gibrish import gibrish  # adjust import path if needed
-
 commands = {
     "gibrish(int,int)": "???",
     "begin(value)": "???",
@@ -16,9 +14,7 @@ commands = {
     "up()": "???",
     "print()": "???",
 }
-
 variables = {}
-
 def printCommands():
     print("\nThese are the functions available:")
     for func, desc in commands.items():
@@ -27,7 +23,6 @@ def printCommands():
     print("  printCommands()  : Display this list again.")
     print("  update(func, desc): Update a function's description.")
     print("  exit             : Exit the program.\n")
-
 def update(func_name, new_desc):
     global commands
     if func_name in commands:
@@ -35,7 +30,6 @@ def update(func_name, new_desc):
         print(f"Updated description for {func_name}.")
     else:
         print(f"Function '{func_name}' not found.")
-
 class GibrishCLI:
     def __init__(self):
         self.instances = {}
@@ -151,16 +145,10 @@ class GibrishCLI:
         print("to create a new instance follow this format : name = constructor")      
         while True:
             try:
-                line = input("")
+                line = input(":)")
                 self.run_command(line)
             except KeyboardInterrupt:
                 print("\nInterrupted. Type 'exit' to quit.")
-
-if __name__ == "__main__":
-    cli = GibrishCLI()
-    cli.repl()
-
-
 def run(self,user_input):
        printCommands()
        while True:
@@ -187,3 +175,6 @@ def run(self,user_input):
                     print(f"'{cmd_name}' exists but is not callable.")
             else:
                 print(f"Unknown command: {cmd_name}. Type 'help' for a list.")
+if __name__ == "__main__":
+    cli = GibrishCLI()
+    cli.repl()
