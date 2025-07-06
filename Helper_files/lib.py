@@ -35,7 +35,3 @@ def ensure_folder_exists(foldername, files_and_contents,permisions):
             index +=1
         created = True
     return created
-def exercise3():
-     ensure_folder_exists ("exercise3",[("secret.txt"," Your new task is to encrypt a message to send to one of the other employees use ..."+print ("It doens't reset!" , TWHITE)
-),(".message.txt","""what is brown and sticky \nA: a stick \nThe more you take, the more you leave behind. What am I?\nA: Footsteps\nI have keys but open no locks. I have space but no room. You can enter, but you can't go outside. What am I?\nA : ??????\n The person who makes it, sells it. The person who buys it never uses it. The person who uses it never knows they are using it. What is it?\n A: A coffin
-"""),],[0o766,0o000,0o000])
